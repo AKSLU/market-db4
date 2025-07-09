@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>История покупок</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background: linear-gradient(to right, #fdfbfb, #ebedee);
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .history-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .buy {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .buy:hover {
+            transform: scale(1.01);
+        }
+
+        .buy p {
+            margin: 8px 0;
+            color: #444;
+            font-size: 16px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>История покупок</h1>
+    <div class="history-container">
+        {% for buy in buys %}
+        <div class="buy">
+            <p><span class="label">ID:</span> {{ buy[0] }}</p>
+            <p><span class="label">Товар:</span> {{ buy[1] }}</p>
+            <p><span class="label">Стоимость:</span> {{ buy[2] }}₸</p>
+            <p><span class="label">Пользователь:</span> {{ buy[3] or "Неизвестно" }}</p>
+            <p><span class="label">Баланс:</span> {{ buy[4] or "Не указано" }}₸</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
